@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class Main {
@@ -11,7 +12,14 @@ class Main {
 		boolean shouldRun = true;
 		while (shouldRun) {
 			System.out.print("Please type a number for what you would like to do (0 for help): ");
-			int option = scanner.nextInt();
+
+			int option = -10;
+			try {
+				option = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Please input a number");
+				scanner.nextLine();
+			}
 
 			String name;
 
@@ -40,6 +48,9 @@ class Main {
 					break;
 				case 5:
 					System.out.println("There are " + man.waitingListSize() + " people in the queue");
+					break;
+				case -10:
+					break;
 				default:
 					System.out.println("Please type a different number");
 					break;
@@ -48,30 +59,5 @@ class Main {
 
 		scanner.close();
 		
-
-		/*man.addPerson("a");
-		man.addPerson("b");
-		man.addPerson("c");
-		man.addPerson("d");
-		man.addPerson("e");
-		man.addPerson("f");
-		man.addPerson("g");
-		man.addPerson("h");
-		man.addPerson("i");
-		man.addPerson("j");
-		man.addPerson("k");
-
-
-		man.displayWaitingList();
-
-		man.servePerson();
-		man.servePerson();
-
-		man.displayWaitingList();
-
-		System.out.println(man.isPersonInList("a"));
-		System.out.println(man.isPersonInList("d"));*/
-
-
 	}
 }

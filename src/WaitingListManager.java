@@ -20,6 +20,11 @@ public class WaitingListManager {
 	}
 
 	String servePerson() {
+		if (peopleNames.size() == 0) {
+			System.out.println("The queue is empty!");	
+			return "";
+		}
+
 		String name = peopleOrder.removeFirst();
 		peopleNames.remove(name);
 
@@ -37,6 +42,11 @@ public class WaitingListManager {
 	}
 
 	void displayWaitingList() {
+		if (peopleNames.size() == 0) {
+			System.out.println("The queue is empty!");
+			return;
+		}
+
 		for (int i = 0; i < peopleOrder.size(); i++) {
 			System.out.println((i + 1) + ": " + peopleOrder.get(i));
 		}
