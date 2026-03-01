@@ -13,6 +13,7 @@ public class WaitingListManager {
 	public void addPerson(String name) {
 		if (peopleNames.contains(name)) {
 			System.out.println(name + " is already in the queue!");
+			return;
 		}
 
 		peopleOrder.add(name);
